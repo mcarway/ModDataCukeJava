@@ -44,8 +44,12 @@ public class loginPage_pf {
 
 	@FindBy(tagName = "p")
 	WebElement lblIntroPara;
-
 	
+	@FindBy(className = "sign-up")
+	WebElement btnSignUp;
+	
+	@FindBy(tagName = "span")
+	WebElement lblWatchDemos;
 	
 	
 
@@ -111,6 +115,12 @@ public class loginPage_pf {
 	public void checkIntroPara() {
 		String introPara=lblIntroPara.getText();
 		Assert.assertTrue(introPara.contains("TestProject simplifies and enhances the use of leading")); 
+	}
+	public void checkSignUpButton() {
+		Assert.assertEquals("FREE SIGN UP", btnSignUp.getText());
+	}
+	public void checkLblWatchDemos() {
+		Assert.assertEquals("Watch demos:", lblWatchDemos.getText());
 	}
 
 

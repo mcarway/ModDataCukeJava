@@ -154,11 +154,21 @@ public class testSteps_PF {
 	public void user_should_see_test_project_logo() {
 		login.checkLogo();
 	}
-	@Then("user should see bold title and introductory paragraph")
+	@And("user should see bold title and introductory paragraph")
 	public void user_should_see_bold_title_and_introductory_paragraph() {
 		login.checkHeaderTitle();
 		login.checkIntroPara();
 	}		
+	
+	@And("user should see free sign up button")
+	public void user_should_see_free_sign_up_button() {
+		login.checkSignUpButton();
+	}
+	
+	@And("user should see watch demos label")
+	public void user_should_see_watch_demos_label() {
+		login.checkLblWatchDemos();
+	}
 
 
 
