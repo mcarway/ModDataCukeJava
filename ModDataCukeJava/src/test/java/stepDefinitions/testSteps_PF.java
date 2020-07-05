@@ -169,6 +169,36 @@ public class testSteps_PF {
 	public void user_should_see_watch_demos_label() {
 		login.checkLblWatchDemos();
 	}
+	@Then("user should see bold title in login form")
+	public void user_should_see_bold_title_in_login_form() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("user should see description text in login form")
+	public void user_should_see_description_text_in_login_form() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("user should see password hint text in login form")
+	public void user_should_see_password_hint_text_in_login_form() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("user should see try test project label in footer")
+	public void user_should_see_try_test_project_label_in_footer() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("user should see support email address in footer")
+	public void user_should_see_support_email_address_in_footer() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
 
 
 
