@@ -51,6 +51,9 @@ public class loginPage_pf {
 	@FindBy(tagName = "span")
 	WebElement lblWatchDemos;
 	
+	@FindBy(css = "a.demo-link > span")
+	WebElement btnWebDemo;
+	
 	
 
 	
@@ -121,6 +124,9 @@ public class loginPage_pf {
 	}
 	public void checkLblWatchDemos() {
 		Assert.assertEquals("Watch demos:", lblWatchDemos.getText());
+	}
+	public void checkBtnWebDemo() {
+		Assert.assertEquals("Web", btnWebDemo.getText());
 	}
 
 

@@ -47,7 +47,8 @@ public class testSteps_PF {
 
 	@And("user is on login page") 
 	public void user_is_on_login_page() {
-		driver.navigate().to("https://example.testproject.io/web"); 
+		//driver.navigate().to("https://example.testproject.io/web"); 
+		driver.get("https://example.testproject.io/web");
 	}
 	
 	@When("^user enters '(.*?)' and '(.*?)'$") 
@@ -169,6 +170,16 @@ public class testSteps_PF {
 	public void user_should_see_watch_demos_label() {
 		login.checkLblWatchDemos();
 	}
+	@And("user should see web button")
+	public void user_should_see_web_button() {
+		login.checkBtnWebDemo();
+	}
+
+	@And("user should see mobile button")
+	public void user_should_see_mobile_button() {
+
+	}
+
 	@Then("user should see bold title in login form")
 	public void user_should_see_bold_title_in_login_form() {
 	    // Write code here that turns the phrase above into concrete actions

@@ -6,6 +6,8 @@ Feature: Inspect login page elements
     And user should see bold title and introductory paragraph
     And user should see free sign up button
     And user should see watch demos label
+    And user should see web button
+    And user should see mobile button
     And user should see bold title in login form
     And user should see description text in login form
     And user should see password hint text in login form
