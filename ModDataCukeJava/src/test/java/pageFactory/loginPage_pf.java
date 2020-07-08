@@ -31,7 +31,7 @@ public class loginPage_pf {
 	WebElement txtUsernameMessage;
 	
 	@FindBy(className = "sign-up")
-	WebElement btnSignup;
+	public WebElement btnSignup;
 
 	@FindBy(id = "login")
 	public WebElement btnLogin;
@@ -50,13 +50,43 @@ public class loginPage_pf {
 	
 	@FindBy(tagName = "span")
 	WebElement lblWatchDemos;
-	
-	@FindBy(css = "a.demo-link > span")
+
+	@FindBy(xpath = "//*/div[@class='demos-links']/a/span")
 	WebElement btnWebDemo;
 	
+	@FindBy(xpath = "//*/div[@class='demos-links']/a[2]/span")
+	WebElement btnMobileDemo;
 	
+	@FindBy(xpath = "//*/div[@id='pageLogin']/h1")
+	WebElement lblLoginTitle;
 
-	
+	@FindBy(xpath = "//*/div[@id='pageLogin']/p")
+	WebElement lblLoginPara;
+
+	@FindBy(xpath = "//*/div[@class='tp-input-wrapper']/small")
+	WebElement lblPWHint;
+
+	@FindBy(xpath = "//*/div[@class='tp-try']/span")
+	WebElement lblFooterLabel;
+
+	@FindBy(xpath = "//*/div[@class='tp-support-contact']/span")
+	WebElement lblFooterEmail;
+
+	@FindBy(xpath = "//*/div[@class='contact-social']/div/a")
+	WebElement linkTwitter;
+
+	@FindBy(xpath = "//*/div[@class='contact-social']/div/a/img")
+	WebElement logoTwitter;
+
+	@FindBy(xpath = "//*/div[@class='contact-social']/div[2]/a")
+	WebElement linkFacebook;
+
+	@FindBy(xpath = "//*/div[@class='contact-social']/div[2]/a/img")
+	WebElement logoFacebook;
+
+	@FindBy(xpath = "//*/footer/div[@class='tp-try']/a")
+	public WebElement btnFooterSignUp;
+
 	//Start processing
 	public void enterUsername(String username) {
 		txtUsername.sendKeys(username);
@@ -128,6 +158,39 @@ public class loginPage_pf {
 	public void checkBtnWebDemo() {
 		Assert.assertEquals("Web", btnWebDemo.getText());
 	}
-
+	public void checkBtnMobileDemo() {
+		Assert.assertEquals("Mobile", btnMobileDemo.getText());
+	}
+	public void checkLoginFormTitle() {
+		Assert.assertEquals("TestProject Example page", lblLoginTitle.getText());
+	}
+	public void checkLoginFormPara() {
+		String loginPara=lblLoginPara.getText();
+		Assert.assertTrue(loginPara.contains("This is the TestProject playground website.")); 
+	}
+	public void checkPWHint() {
+		Assert.assertEquals("Hint: password is 12345", lblPWHint.getText()); 
+	}
+	public void checkFooterLabel() {
+		Assert.assertEquals("Try TestProject:", lblFooterLabel.getText()); 
+	}
+	public void checkFooterEmail() {
+		Assert.assertEquals("support@testproject.io", lblFooterEmail.getText()); 
+	}
+	public void checkTwitter() {
+		//Confirm both the href and img attribute links are correct.
+		Assert.assertEquals("https://twitter.com/TestProject_io", linkTwitter.getAttribute("href")); 
+		Assert.assertEquals("https://example.testproject.io/web/assets/img/ri-twitter.svg", logoTwitter.getAttribute("src")); 
+	}
+	public void checkFacebook() {
+		//Confirm both the href and img attribute links are correct.
+		Assert.assertEquals("https://www.facebook.com/testproject.io", linkFacebook.getAttribute("href")); 
+		Assert.assertEquals("https://example.testproject.io/web/assets/img/ri-facebook.svg", logoFacebook.getAttribute("src")); 
+	}
+	public void checkFooterSignUp() {
+		//Confirm both the href and link text are correct.
+		Assert.assertEquals("https://app.testproject.io/signup", btnFooterSignUp.getAttribute("href")); 
+		Assert.assertEquals("FREE SIGN UP", btnFooterSignUp.getText());
+	}
 
 }

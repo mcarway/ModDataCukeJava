@@ -2,6 +2,7 @@
 package stepDefinitions;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver; 
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,6 +12,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.*; 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Assert;
 
 
 
@@ -24,6 +26,7 @@ public class testSteps_PF {
 	String password="";
 	Boolean passValid;
 	String msgType;
+	ArrayList<String> tabs;
 
 	@Before()
 	public void setup(Scenario scenario) {
@@ -177,41 +180,63 @@ public class testSteps_PF {
 
 	@And("user should see mobile button")
 	public void user_should_see_mobile_button() {
-
+		login.checkBtnMobileDemo();
 	}
 
-	@Then("user should see bold title in login form")
+	@And("user should see bold title in login form")
 	public void user_should_see_bold_title_in_login_form() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		login.checkLoginFormTitle();
 	}
 
-	@Then("user should see description text in login form")
+	@And("user should see description text in login form")
 	public void user_should_see_description_text_in_login_form() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    login.checkLoginFormPara();
 	}
 
-	@Then("user should see password hint text in login form")
+	@And("user should see password hint text in login form")
 	public void user_should_see_password_hint_text_in_login_form() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    login.checkPWHint();
 	}
 
-	@Then("user should see try test project label in footer")
+	@And("user should see try test project label in footer")
 	public void user_should_see_try_test_project_label_in_footer() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    login.checkFooterLabel();
 	}
 
-	@Then("user should see support email address in footer")
+	@And("user should see support email address in footer")
 	public void user_should_see_support_email_address_in_footer() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    login.checkFooterEmail();
+	}
+	@And("user should see twitter link in footer")
+	public void user_should_see_twitter_link_in_footer() {
+	    login.checkTwitter();
+	}
+	@And("user should see facebook link in footer")
+	public void user_should_see_facebook_link_in_footer() {
+	    login.checkTwitter();
 	}
 
+	@And("user should see free signup button in footer")
+	public void user_should_see_free_signup_button_in_footer() {
+	    login.checkFooterSignUp();
+	    Utility.takeAShot();
+	}
+	@When("user clicks top signup button")
+	public void user_clicks_top_signup_button() {
+		login.btnSignup.click();
+	}
+	@When("user clicks footer signup button")
+	public void user_clicks_footer_signup_button() {
+		login.btnFooterSignUp.click();
+	}
 
-
+	@Then("user lands on signup page")
+	public void user_lands_on_signup_page() {
+		 tabs = new ArrayList<String> (driver.getWindowHandles());
+		 driver.switchTo().window(tabs.get(1));
+		 Assert.assertEquals("https://app.testproject.io/signup/", driver.getCurrentUrl());
+		 Utility.takeAShot();
+	}
 
 	@After()
 	public void tearDown() throws InterruptedException, IOException {
