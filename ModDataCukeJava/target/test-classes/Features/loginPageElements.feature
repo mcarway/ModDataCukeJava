@@ -17,7 +17,7 @@ Feature: Inspect login page elements
     And user should see facebook link in footer
     And user should see free signup button in footer
     
-Scenario: Confirm top signup button sends user to signup page
+Scenario: Confirm top signup button sends user to signup page 
     Given user is on login page
     When user clicks top signup button
     Then user lands on signup page

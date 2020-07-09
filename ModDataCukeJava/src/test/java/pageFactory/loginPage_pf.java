@@ -101,7 +101,7 @@ public class loginPage_pf {
 	}
 	
 	public void checkPassword(String password) {
-		//Confirm password is NOT valid
+		//Confirm password is INvalid
 		Assert.assertNotEquals("12345", password);
 	}
 	
