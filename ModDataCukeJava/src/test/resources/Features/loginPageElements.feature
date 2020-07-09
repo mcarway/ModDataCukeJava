@@ -21,7 +21,6 @@ Scenario: Confirm top signup button sends user to signup page
     Given user is on login page
     When user clicks top signup button
     Then user lands on signup page
-    #
     
 Scenario: Confirm footer signup button sends user to signup page
     Given user is on login page
