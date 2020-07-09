@@ -54,15 +54,16 @@ public class testSteps_PF {
 		driver.get("https://example.testproject.io/web");
 	}
 	
-	@When("^user enters '(.*?)' and '(.*?)'$") 
-	public void	user_enters_username_and_password(String username, String password) throws InterruptedException { 
-		this.username=username;
-		this.password=password;
-		login.enterUsername(username);
-		login.enterPassword(password);
-		Utility.takeAShot();
-	}
-
+	
+	  @When("^user enters '(.*?)' and '(.*?)'$") 
+	  public void user_enters_username_and_password(String username, String password) throws InterruptedException { 
+		  this.username=username; 
+		  this.password=password;
+		  login.enterUsername(username); 
+		  login.enterPassword(password);
+		  Utility.takeAShot(); 
+	  }
+	 
 	@And("user clicks login") 
 	public void user_clicks_login() {
 		login.clickLogin();
@@ -104,14 +105,20 @@ public class testSteps_PF {
 		login.checkPageLocation("login");
 
 	}
-
-	@And("user receives proper error messages")
+	
+/*	@And("user receives proper error messages")
 	public void user_receives_proper_error_messages() {
 		login.checkErrorMessage("msgType");
 		Utility.takeAShot();
 
 	}
+*/
+	@And("^user receives proper '(.*?)' messages$")
+	public void user_receives_proper_error_messages(String error) {
+		login.checkErrorMessage(msgType, error );
+		Utility.takeAShot();
 
+	}
 
 
 

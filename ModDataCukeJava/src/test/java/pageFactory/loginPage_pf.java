@@ -114,7 +114,7 @@ public class loginPage_pf {
 		}
 	}
 	
-	public void checkErrorMessage(String msgType) {
+/*	public void checkErrorMessage(String msgType) {
 		if(msgType.equals("wrongPassword")) {
 			Assert.assertEquals("Password is invalid", txtPWMessage.getText());
 			System.out.println("Password was invalid says MIKE.");
@@ -127,7 +127,19 @@ public class loginPage_pf {
 			return;
 		}
 	}
-	
+*/
+	public void checkErrorMessage(String msgType, String error) {
+		if(msgType.equals("wrongPassword")) {
+			Assert.assertEquals(error, txtPWMessage.getText());
+		}
+		else if(msgType.equals("wrongUsername")) {
+			Assert.assertEquals(error, txtUsernameMessage.getText());
+		}
+		else {
+			return;
+		}
+	}
+
 	public void checkUsername(String username) {
 		//Confirm it's not empty
 		Assert.assertEquals("", username);

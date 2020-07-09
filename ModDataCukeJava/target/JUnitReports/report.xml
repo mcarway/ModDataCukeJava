@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="4" time="61.668">
-<testcase classname="Test homepage form entry functionality" name="Confirm user can save homepage form data." time="31.443">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="7" time="123.293">
+<testcase classname="Test homepage form entry functionality" name="Confirm user can save homepage form data." time="25.741">
 <system-out><![CDATA[Given user is logged in and on homepage.....................................passed
 When subscriber inputs 'United States' '122 Main St.' 'mcarway@gmail.com' and '888-999-0987' in all address fields.passed
 And user clicks save button.................................................passed
 Then the saved message appears..............................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Test login and form entry functionality" name="Check valid login functionality" time="9.706">
+<testcase classname="Test login security control functionality" name="Check valid login functionality" time="12.783">
 <system-out><![CDATA[Given browser is open.......................................................passed
 And user is on login page...................................................passed
 When user enters 'Mark Smith' and '12345'...................................passed
@@ -15,7 +15,7 @@ And user clicks login.......................................................pass
 Then user is directed to the home page......................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Test login and form entry functionality" name="Check invalid password functionality" time="9.25">
+<testcase classname="Test login security control functionality" name="Check invalid password functionality" time="13.335">
 <system-out><![CDATA[Given browser is open.......................................................passed
 And user is on login page...................................................passed
 When user enters 'Cindy Jones' and '12335'..................................passed
@@ -25,7 +25,7 @@ Then user remains on login page.............................................pass
 And user receives proper error messages.....................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Test login and form entry functionality" name="Check invalid username functionality" time="9.717">
+<testcase classname="Test login security control functionality" name="Check invalid username functionality" time="15.841">
 <system-out><![CDATA[Given browser is open.......................................................passed
 And user is on login page...................................................passed
 When user enters '' and '12345'.............................................passed
@@ -33,6 +33,36 @@ And username is invalid.....................................................pass
 And user clicks login.......................................................passed
 Then user remains on login page.............................................passed
 And user receives proper error messages.....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Inspect login page elements" name="Confirm all page elements appear as expected" time="14.017">
+<system-out><![CDATA[Given user is on login page.................................................passed
+Then user should see test project logo......................................passed
+And user should see bold title and introductory paragraph...................passed
+And user should see free sign up button.....................................passed
+And user should see watch demos label.......................................passed
+And user should see web button..............................................passed
+And user should see mobile button...........................................passed
+And user should see bold title in login form................................passed
+And user should see description text in login form..........................passed
+And user should see password hint text in login form........................passed
+And user should see try test project label in footer........................passed
+And user should see support email address in footer.........................passed
+And user should see twitter link in footer..................................passed
+And user should see facebook link in footer.................................passed
+And user should see free signup button in footer............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Inspect login page elements" name="Confirm top signup button sends user to signup page" time="20.417">
+<system-out><![CDATA[Given user is on login page.................................................passed
+When user clicks top signup button..........................................passed
+Then user lands on signup page..............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Inspect login page elements" name="Confirm footer signup button sends user to signup page" time="19.974">
+<system-out><![CDATA[Given user is on login page.................................................passed
+When user clicks footer signup button.......................................passed
+Then user lands on signup page..............................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

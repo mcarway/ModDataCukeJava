@@ -18,11 +18,11 @@ Feature: Test login security control functionality
     And password is invalid
     And user clicks login
     Then user remains on login page
-    And user receives proper error messages
+    And user receives proper '<error>' messages
 
     Examples: 
-      | username   | password |
-      | Cindy Jones |    12335 |
+      | username    | password | error               |
+      | Cindy Jones | llkkk    | Password is invalid |
 
   Scenario Outline: Check invalid username functionality
     Given browser is open
@@ -31,22 +31,8 @@ Feature: Test login security control functionality
     And username is invalid
     And user clicks login
     Then user remains on login page
-    And user receives proper error messages
+    And user receives proper '<error>' messages
 
     Examples: 
-      | username   | password |
-      |  |    12345 |
-
-
- # Scenario Outline: Check login error messages function as expected
- #   Given browser is open
- #   And user is on login page
- #   When invalid '<username>' and '<password> are entered'
- #   Then user remains on login page
- #   And user receives proper error messages
-
- #   Examples: 
- #     | username   | password |
- #     | Mike | 23 |
- #     | Cindy | 1234 |
-
+      | username | password | error                         |
+      |          |    12345 | Please provide your full name |
