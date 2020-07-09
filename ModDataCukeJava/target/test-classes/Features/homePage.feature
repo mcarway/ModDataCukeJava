@@ -8,5 +8,5 @@ Feature: Test homepage form entry functionality
 
     Examples: 
       | country       | address      | email             | phone        |
-      | United States | 122 Main St. | mcarway@gmail.com | 888-999-0987 |
+      | United States | 122 Main St. | mcarway@gmail.com | 889-999-0987 |
      
