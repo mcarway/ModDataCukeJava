@@ -87,7 +87,7 @@ public class testSteps_PF {
 //		Utility.takeAShot();
 //}
 
-	@And ("password is invalid")
+	@And ("password is invalid") //checks the pw.
 	public void password_is_invalid() {
 		login.checkPassword(password);
 		msgType="wrongPassword";
